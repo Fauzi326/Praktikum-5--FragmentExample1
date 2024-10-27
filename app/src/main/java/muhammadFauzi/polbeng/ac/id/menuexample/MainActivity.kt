@@ -2,7 +2,9 @@ package muhammadFauzi.polbeng.ac.id.menuexample
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import muhammadFauzi.polbeng.ac.id.menuexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,5 +22,30 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menuFile -> {
+                showMessage("File menu")
+                return true
+            }
+            R.id.menuEdit -> {
+                showMessage("Edit menu")
+                return true
+            }
+            R.id.menuHelp -> {
+                showMessage("Help menu")
+                return true
+            }
+            R.id.menuExit -> {
+                showMessage("Exit")
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+    private fun showMessage(msg:String) {
+        Snackbar.make(binding.rootLayout, msg,
+            Snackbar.LENGTH_LONG).show()
     }
 }
