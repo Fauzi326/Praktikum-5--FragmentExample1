@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() , Coordinator {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
     override fun onBookChanged(index: Int) {
         val frag = supportFragmentManager.findFragmentById(R.id.fragment_book_description)
         if (frag is BookDescription) {
