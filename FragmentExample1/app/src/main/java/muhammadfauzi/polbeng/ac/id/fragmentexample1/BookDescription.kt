@@ -12,6 +12,7 @@ class BookDescription : Fragment() {
     private val binding get() = _binding!!
     private lateinit var arrBookDesc: Array<String>
     private var bookIndex = 0
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,11 +21,21 @@ class BookDescription : Fragment() {
         _binding = BookDescriptionBinding.inflate(inflater, container,
             false)
         arrBookDesc = resources.getStringArray(R.array.book_descriptions)
+        if (savedInstanceState != null) {
+            bookIndex = savedInstanceState.getInt("bookIndex", 0)
+        }
         return binding.root
     }
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("bookIndex", bookIndex)
+        super.onSaveInstanceState(outState)
+    }
+
     fun changeDescription(index: Int){
         bookIndex = index
         binding.tvDescription.text = arrBookDesc[bookIndex]
+        println("BOOK INDEX = $bookIndex")
+        println(arrBookDesc[bookIndex])
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         changeDescription(bookIndex)
