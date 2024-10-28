@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
     <fragment
         android:id="@+id/fragment_book_title"
-
         android:name="muhammadfauzi.polbeng.ac.id.fragmentexample1.BookTitle"
         android:layout_width="0px"
         android:layout_height="match_parent"
@@ -15,7 +14,6 @@
         tools:layout="@layout/book_titles" />
     <fragment
         android:id="@+id/fragment_book_description"
-
         android:name="muhammadfauzi.polbeng.ac.id.fragmentexample1.BookDescription"
         android:layout_width="0px"
         android:layout_height="match_parent"
