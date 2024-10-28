@@ -36,9 +36,9 @@ class BookTitle : Fragment(), View.OnClickListener {
                 index = 2
             }
         }
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        val activity = activity
+        if (activity is Coordinator) {
+            activity.onBookChanged(index)
+        }
     }
 }
